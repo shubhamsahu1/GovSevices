@@ -13,11 +13,16 @@ module.controller('myCtrl',function($http) {
     $http.post("http://localhost:3000/api/save",that.FormData)
     .then(function(response) {
       that.submit = true;
+      that.responce = "";
       console.log(response.data);
     },function(response) {
       that.responce = response.data.details[0].message;
       console.log(response.data.details[0]);
     });
   }
+    this.goBack = function(){
+      this.FormData = {country:""};
+        that.submit = false;
+    }
 
 })
