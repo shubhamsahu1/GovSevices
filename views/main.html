@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="main.js"></script>
+
+<body>
+
+    <div ng-app="mod1" ng-controller="myCtrl as myctrl">
+        <div class="" ng-if="!myctrl.submit">
+
+
+            <H2>Some UseFul Government Service</H2>
+
+            <form>
+              <p style="color:red" ng-if="myctrl.responce">{{myctrl.responce}}</p>
+                Name:
+                <input type="text" name="name" ng-model="myctrl.FormData.name"><br>
+                <br>
+                 Sex: <input type="radio" name="gender" ng-model="myctrl.FormData.sex" value="male" checked> Male
+                <input type="radio" name="gender" ng-model="myctrl.FormData.sex" value="female"> Female<br><br>
+                 Age: <input type="number" name="age" ng-model="myctrl.FormData.age">
+
+                 <br><br>
+                 Country
+                <select ng-model="myctrl.FormData.country">
+                  <option value="">Choose Country</option>
+                  <option ng-repeat="x in myctrl.mydata" value="{{x.name}}">{{x.name}}</option>
+                </select>
+                <br><br>
+                <button type="button" ng-click="myctrl.formSubmit()">Apply</button>
+            </form>
+        </div>
+        <div ng-if="myctrl.submit">
+
+            <h2>Application Complete</h2>
+            <p>{{myctrl.FormData.name}} Thank you for applying to this useful government service.</p>
+        </div>
+    </div>
+</body>
+
+</html>
