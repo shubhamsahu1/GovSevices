@@ -25,10 +25,10 @@ const Userdata = mongoose.model('userdata',userdataSchema);
 
 app.post('/api/save',async (req,res) =>{
   const schema = {
-    name:joi.string().min(3).required(),
-    sex:joi.string().required(),
-    age:joi.number().required(),
-    country:joi.string().required()
+    name:joi.string().min(3).max(30).required(),
+    sex:joi.string().alphanum().min(3).max(30).required(),
+    age:joi.number().greater(1).less(110).required(),
+    country:joi.string().min(3).max(30).required()
   };
   const result = joi.validate(req.body,schema);
   if (result.error) {
