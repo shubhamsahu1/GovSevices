@@ -36,8 +36,7 @@ router.post('/save',async (req,res) =>{
     country:req.body.country
   })
   userdata = await userdata.save();
-  console.log(req.body.name);
-  res.send(userdata);
+    res.send(userdata);
 })
 module.exports.router = router;
 module.exports.Userdata = Userdata;
