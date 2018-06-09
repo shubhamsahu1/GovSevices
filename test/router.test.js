@@ -75,6 +75,13 @@ describe('POST:/', () => {
       const data = await Userdata.find({ name: 'shubham' });
       expect(data[0].name).toBe("shubham");
     });
-  
+
   });
+
 });
+describe('checking country data', () => {
+  it('should get contry data successfully', async () => {
+  const res = await request('https://restcountries.eu').get('/rest/v1/region/Europe');
+  expect(res.status).toBe(200);
+  })
+})
